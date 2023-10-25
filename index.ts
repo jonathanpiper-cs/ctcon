@@ -55,8 +55,8 @@ const targetStacks: SimpleStack[] = [
 const authenticateWithAuthtoken = async () => {
     var authtoken, loginResponse, loginJSON;
     try {
-        if (fs.existsSync("./authtoken")) {
-            authtoken = fs.readFileSync("./authtoken", "utf8");
+        if (fs.existsSync("./.authtoken")) {
+            authtoken = fs.readFileSync("./.authtoken", "utf8");
         } else {
             log(chalk.red("Couldn't find local authtoken file."));
             return false;
@@ -100,7 +100,7 @@ const authenticateWithEmailPassword = async () => {
         }
         authtoken = loginJSON?.user?.authtoken;
         log(chalk.blue("Writing authtoken to local file."));
-        fs.writeFileSync("./authtoken", JSON.stringify(authtoken).replaceAll('"', ""), {
+        fs.writeFileSync("./.authtoken", JSON.stringify(authtoken).replaceAll('"', ""), {
             encoding: "utf8",
             flag: "w",
         });
