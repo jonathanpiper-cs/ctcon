@@ -132,3 +132,5 @@ dist
 .authtoken
 
 */
+
+.DS_Store
