@@ -37,16 +37,16 @@ const user = {
 
 // The source from which the content type schemas will be fetched.
 const sourceStack: SimpleStack = {
-    name: "Stylish Outdoor Gear",
-    key: "blt2e8819a463338e6b",
+    name: "",
+    key: "",
 };
 
 // Target stacks defined with name and api key values. This array will be iterated over to create new copies of the content type schema.
 // This could be expanded to include management tokens if prefered over authtoken method.
 const targetStacks: SimpleStack[] = [
     {
-        name: "Goal-Oriented Bicycling",
-        key: "blt38fde950b30192d4",
+        name: "",
+        key: "",
     },
 ];
 
