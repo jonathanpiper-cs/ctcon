@@ -17,7 +17,7 @@ const log = console.log;
 
 // Get a content type uid from the user.
 const argv = await yargs(hideBin(process.argv))
-    .usage("Usage: $0 -ct [content type uid to copy]")
+    .usage("Usage: $0 --ct [content type uid to copy]")
     .options({
         ct: { type: "string", demandOption: true, alias: "ContentType" },
     }).argv;
