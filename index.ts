@@ -98,13 +98,13 @@ const authenticateWithEmailPassword = async () => {
             log(chalk.red.bold(`Unable to log in using password. Contentstack sent the following message:\n${loginJSON.error_message}`));
             return false;
         }
+        // If authenticated, write the returned authtoken to file.
         authtoken = loginJSON?.user?.authtoken;
         log(chalk.blue("Writing authtoken to local file."));
         fs.writeFileSync("./.authtoken", JSON.stringify(authtoken).replaceAll('"', ""), {
             encoding: "utf8",
             flag: "w",
         });
-        // If authenticated, write the returned authtoken to file.
         return authtoken;
     } catch (err) {
         console.error(err);
@@ -162,6 +162,7 @@ const getStackExtensions = async (stack: SimpleStack, authtoken: string) => {
             },
         });
         const extensionsJSON = await extensionsRequest.json();
+        console.log(extensionsJSON)
         log(chalk.green.bold(`Fetched extensions and apps installed on ${stack.name}!  🎉`));
         return extensionsJSON.extensions;
     } catch (err) {
@@ -176,6 +177,7 @@ const main = async () => {
     const ct = await getContentType(authtoken);
     const ctSchema = ct.schema;
     const sourceStackExtensions = await getStackExtensions(sourceStack, authtoken);
+    console.log(ctSchema)
 
     // Iterate through each target stack to get installed extensions/apps, parse source content type schema to replace 'extension_uid' fields (indicating extension/app)
     // with the relevant uid from the target stack, then write modified schema to file.
