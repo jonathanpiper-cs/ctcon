@@ -19,3 +19,5 @@ The tool iterates over the list of target stacks. For each stack, it will get a 
 
 Limitations:
 This tool currently only looks for the "extension_uid" property at the root level of the content type. It does not look inside of group fields, modular blocks, or global fields.
+
+The tool only works with content types, not global fields.
